@@ -1,0 +1,9 @@
+PICO CTF DIGITAL FORENSICS (matryoshka doll)
+LINK
+https://play.picoctf.org/practice/challenge/129?page=1&search=doll
+Description:
+okay so i used exiftool to give me the metadata and i used and the bin walk e-dolss.jpg, _dolls.jpg.extracted dolls.jpg
+Binwalk extracts alls the files from the directory with.extracted extension
+
+flag:
+picoCTF{bf6acf878dcbd752f4721e41b1b1b66b}
