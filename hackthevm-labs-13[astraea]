@@ -1,0 +1,20 @@
+Link:(ssh asteria@hades.hackmyvm.eu -p 6666) 
+note this accepting the ssh port config or link so we passed through asteria to access this level.
+User:
+astraea
+Method of solve:
+We are logged out of login when we use astraea creditenials
+if we look at the /etc/ssh/sshd_config using another account, we see that astraea doesn't have a standard SSH shell
+Turns out there is a busybox binary on this server, and we can use that to enumerate(search) other open ports on the localhost
+There's an FTP server running on localhost, so we use astraea's credentials on localhost FTP, but first we have to move
+into a public writable directory
+commands:
+cat /etc/ssh/sshd_config
+find / -name *busybox* 2>/dev/null
+/var/tmp/busybox netstat -tulpn
+mkdir
+ftp localhost
+cd /pwned/astraea
+ls -la
+get atalanta.txt
+get mission.txt
