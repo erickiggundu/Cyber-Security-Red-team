@@ -1,0 +1,15 @@
+Link/URL:
+http://amiable-citadel.picoctf.net:51013/login
+User
+Pico/amiable
+content
+Web Exploitation
+Method of Solve;
+we entered in login form and put in the{"email": "ctf-player@picoctf.org", "password":"test"}
+but unfortunate failed, then we viewed page source where got some helpful remove message
+and then we used curl = "Client URL" - A command-line tool for transferring data to/from servers using various protocols (HTTP, HTTPS, FTP, etc.), 
+-X POST to send or update data and the -H for Headers and then content-Type which is json file we pass same email and password:test, then headers
+and login link or url
+curl -X POST -H "Content-Type: application/json" -d '{"email": "ctf-player@picoctf.org", "password":"test"}' -H "X-Dev-Access: yes" http://amiable-citadel.picoctf.net:51013/login
+Flag:
+picoCTF{brut4_f0rc4_3c6b118b}
