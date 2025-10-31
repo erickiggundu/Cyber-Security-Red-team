@@ -1,0 +1,14 @@
+URL/LINK:
+https://tryhackme.com/room/ctfcollectionvol1
+method:
+Digital forensics[stegnography]stegahide
+content:serie 4
+we use wget to dowload the picture, the we read it's information using cat extraction.jpg | base 64, then we pasted the information
+into pastebin, then to the clipboard of attack the book, then we created a nano buffer of pic.b64 and we saved with that infomation
+Commands
+nano pic.b64
+base64 -d pic.b64 > pic.jpg
+steghide extract -sf pic.jpg
+cat Final_message.txt 
+Flag:
+THM{500n3r_0r_l473r_17_15_0ur_7urn}
