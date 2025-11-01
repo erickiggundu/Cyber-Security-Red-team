@@ -1,0 +1,14 @@
+#URL/LINK:
+https://training.olicyber.it/challenges#challenge-42
+#Concept:
+HTTP redirects
+#Method of Solve:
+The landing page has a button that is supposed to "give you the flag"
+the win button redirects to you the button the youtube video
+what you neeed to do is inspect the redirect request when you nagivate to the challenge.
+
+''''
+curl -v http://roller.challs.olicyber.it/get_flag.php
+''''
+#FLAG:
+flag{r1ck_4st1ey_c14ssic_m3m3}
