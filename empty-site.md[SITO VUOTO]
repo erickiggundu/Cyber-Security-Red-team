@@ -1,0 +1,8 @@
+#URL/LINK
+*https://training.olicyber.it/challenges#challenge-60
+Concept:
+*this flags are in pieces and this is treasure hunting in different webpages
+Method of Solve:
+*look at the landing page, the css page, and the JS page, and collect pieces of the flag from each one
+
+flag"{you_in_can_t_see_me_in_the_browser}"
