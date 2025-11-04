@@ -1,0 +1,10 @@
+#URL/LINK:
+https://pwn.college/linux-luminarium/piping/
+#Concept:
+redirecting in piping
+Method of Solving: 
+i have first run the /challenge/run command and add on the redirection to my > myflag and make it /challenge/run -> myflag and then run it gives the my flag file 
+and then runs the cat myflag
+
+Flag:
+https://pwn.college/linux-luminarium/piping/
