@@ -1,0 +1,28 @@
+#URL/LINK
+https://play.picoctf.org/practice/challenge/403
+Concept
+it is binary hacking more of using webshell or terminal and the delve in the picker-IV.c as source code and picker-IV
+Challenge Description
+
+Can you figure out how this program works to get the flag?
+Connect to the program with netcat:
+$ nc saturn.picoctf.net 51178
+The program's source code can be downloaded here. The binary can be downloaded here.
+
+#Method of solve 
+so i have direct where have i have put two files picker-IV and picker-IV.c from the picoctf that i have download using shell with wget command a
+fter i add in the flag.txt file and then, i looked into the using cd picker_iv/
+
+echo "jasonit" > flag.txt
+
+objdump -d picker-IV | grep win
+
+r2 -d
+
+r2 -d picker-IV
+
+./picker-IV
+
+nc saturn.picoctf.net 54100
+
+Flag:
