@@ -1,0 +1,15 @@
+#URL/LINK:
+https://play.picoctf.org/practice/challenge/300
+
+#Challenge Description:
+Description
+Download this disk image and find the flag.
+Note: if you are using the webshell, download and extract the disk image into /tmp not your home directory.
+#Concept
+Forensics
+#Method of Solving
+We used the Fstat coomand to display the statistics and fls filesystem Ls to list out files and directories within a specified 
+filesystem and then i used the command to read the files from disk image.
+
+Flag:
+picoCTF{by73_5urf3r_adac6cb4}
