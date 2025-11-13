@@ -1,0 +1,19 @@
+#URL/LINK
+https://play.picoctf.org/practice/challenge/525
+
+#Challenge Description
+A friendly program wants to greet you… but its goodbye might say more than it should. Can you convince it to reveal the flag?
+connect to the challenge instance nc amiable-citadel.picoctf.net 51344. You can Download the program file here. And source code
+
+#Concept
+Buffer
+overflow
+Binary exploitation
+Overflow
+#Method of Solving
+The method of is to create the binary and break it to and add and connect to it is port and break the binary
+
+#flag
+picoCTF{0v3rfl0w_c0mm4nd_a9259e7a}
+
+
