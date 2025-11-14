@@ -1,0 +1,53 @@
+url/link
+https://training.olicyber.it/challenges#challenge-329
+
+Challenge description:
+
+A very simple and effective way to obfuscate a message is to use XOR with a secret key.
+
+The definition concerns logical variables (True/False), but the concept can be quickly and naturally extended to bit strings: the XOR between two binary sequences thus becomes the bitwise XOR.
+
+For example: 00110000 xor 01100001 → 01010001.
+
+In Python, the XOR between two integers is given by the ^ operator. To XOR two strings, you must first convert them to bytes, then perform the operation byte by byte.
+
+A Python function to xor two bytes objects can be:
+
+def xor(a, b):
+return bytes([x^y for x,y in zip(a,b)])
+To get the flag for this challenge, xor these two messages: be careful to decode the hexadecimal to bytes correctly!
+
+m1 = 158bbd7ca876c60530ee0e0bb2de20ef8af95bc60bdf m2 = 73e7dc1bd30ef6576f883e79edaa48dcd58e6aa82aa2
+
+concept
+Python scriptin
+cryptography
+method of solve:
+
+def xor(a, b):
+    return bytes([x^y for x,y in zip(a,b)])
+
+# I due messaggi in esadecimale
+m1 = "158bbd7ca876c60530ee0e0bb2de20ef8af95bc60bdf"
+m2 = "73e7dc1bd30ef6576f883e79edaa48dcd58e6aa82aa2"
+
+# Converti da hex a bytes
+m1_bytes = bytes.fromhex(m1)
+m2_bytes = bytes.fromhex(m2)
+
+# Fai lo XOR
+result = xor(m1_bytes, m2_bytes)
+
+# Decodifica come stringa
+flag = result.decode('ascii')
+
+print("Flag:", flag)
+```
+
+**Risultato:**
+```
+Flag: flag{x0r_15_r3v3rs1bl3}
+
+
+flag
+flag{x0R_f0r_th3_w1n!}
