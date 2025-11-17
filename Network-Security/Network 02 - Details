@@ -1,0 +1,18 @@
+#URL/LINK
+https://training.olicyber.it/challenges#challenge-239
+
+#Concept
+Network Security
+
+#Description Challenge
+In this challenge you are asked to analyze in more detail some packages. In particular, the flag is in the following format:
+
+flag{Source_MAC_address/data_bytes_length}
+
+The information needed for the flags is taken from frame number 4, the first containing the session data TCP. .
+
+#Method of Solving
+Download the pcap file, the pcap file you have to open it with wireshark and you look into TCP files and on frame 4 and source-mac address
+
+#Flag:
+flag{26:0e:ad:ef:c6:65/63}
