@@ -9,3 +9,5 @@ Cryptography
 * copy all the text in the ciphertext message and use a webapp like rot13.com to decrypt the message
 * alternatively you can use the slider provided on the challenge page, and put in the middle of the slider bar
 * the answer is `speigelbild`
+#flag
+*picoCTF{not_bad_a_problem}
