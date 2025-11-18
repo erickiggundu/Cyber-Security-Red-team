@@ -1,0 +1,16 @@
+URL/link
+https://play.picoctf.org/practice/challenge/407
+Concept
+Cryptography
+Challenge Description
+Description
+This is the Custom Cyclical Cipher!
+Download the ciphertext here.
+Download the encoder here.
+Enclose the flag in our wrapper for submission. If the flag was "example" you would submit "picoCTF{example}".
+
+method of solving
+The method of this you to download the scripts and you decode them 
+
+Flag:
+picoCTF{adlibs}
