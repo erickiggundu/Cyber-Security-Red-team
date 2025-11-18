@@ -1,0 +1,11 @@
+# URL
+https://play.picoctf.org/practice/challenge/62
+# Category
+Cryptography
+# Concept
+* the ROT13 cipher is a encryption method where you shift all letters of the plaintext message by 13 letter positions to form the ciphertext
+* to decrypt the message, we do the exact same operation, shifting all letters by 13 positions in the alphabet
+# Method of solve
+* copy all the text in the ciphertext message and use a webapp like rot13.com to decrypt the message
+* alternatively you can use the slider provided on the challenge page, and put in the middle of the slider bar
+* the answer is `speigelbild`
