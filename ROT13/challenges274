@@ -1,0 +1,14 @@
+# URL
+https://ringer0ctf.com/challenges/274
+
+#Concept
+keyboard-shift cipher
+
+#Method of Solving
+this cipher text was encrypted using the keyboard-shift cipher cipher, which is acipher where each letter in the plaintext in the plaintext is substituted with the
+this keyboard-shift cipher is using the standard qwerty keyboard, and the shift is the letter to the plaintext letter
+we can use this tool to decrypt message:
+'''
+# https//www.dcode.fr/keyboard-shift-cipher
+
+'''
