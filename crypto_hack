@@ -1,0 +1,17 @@
+# We might want to create a Python virtual environment to
+# install the Python pwn package
+# python -m venv myenv
+# cd myenv
+# source bin/activate
+# pip install pwn
+
+from pwn import xor
+
+from pwn import *
+
+encrypted_hex = "0e0b213f26041e480b26217f27342e175d0e070a3c5b103e2526217f27342e175d0e077e2634511501"  # FIXED
+key_bytes = b"myXORkey"
+
+encrypted_bytes = bytes.fromhex(encrypted_hex)
+
+print(xor(encrypted_bytes, key_bytes).decode(errors="ignore"))
