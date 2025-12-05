@@ -1,0 +1,22 @@
+#URL/LINK
+
+
+#Concept
+Redirecting and grepping results
+
+
+#Challenge Description
+You know how to run commands, how to redirect their output (e.g., >), and how to search through the resulting file (e.g., grep). Let's put this together!
+
+In preparation for more complex levels, we want you to:
+
+Redirect the output of /challenge/run to /tmp/data.txt.
+This will result in a hundred thousand lines of text, with one of them being the flag, in /tmp/data.txt.
+grep that for the flag!
+
+Method of Solve 
+you redirect the /challenge/run > /tmp/data.txt and after grep the flag using grep command and make it grep "pwn.college /tmp/data.txt." boom flag
+
+#Flag:
+pwn.college{89BoQRccCpDjEY7xydWzcSDP9LI.QX4EDO0wSM0cDMzEzW}
+
