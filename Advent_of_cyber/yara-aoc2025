@@ -1,0 +1,59 @@
+# Link/Url:
+https://tryhackme.com/room/yara-aoc2025-q9w1e3y5u7
+# Concept 
+YARA rules for defensive cybersecurity 
+
+# Method of Solving - TBFC Easter Hunt
+
+## Objective
+Detect and extract TBFC identifiers from the easter file using YARA rules.
+
+## Step 1: Environment Setup
+First, activate the virtual machine in TryHackMe and navigate to the target directory:
+```bash
+cd /Downloads
+ls
+```
+
+This displays all files in the Downloads directory, where we locate the `easter` file.
+
+## Step 2: Create YARA Rules
+Create a YARA rule file to detect TBFC patterns:
+```bash
+nano tbfc_rules.yara
+```
+
+Write the following YARA rule:
+```rule TBFC_string_match
+{
+    strings:
+        $s = /TBFC:[A-Za-z0-9]+/ ascii
+    condition:
+        $s
+}
+```
+
+Save and exit (Ctrl+X, then Y, then Enter).
+
+## Step 3: Execute YARA Scan
+Run the YARA rule against the easter file:
+```bash
+yara -s tbfc_rules.yara easter
+```
+
+The `-s` flag displays matched strings along with their locations.
+
+## Step 4: Analyze Results
+Review the output to identify:
+- Number of matches found
+- Exact TBFC strings detected
+- Location/offset of each match in the file
+
+## Step 5: Extract Flags
+Document all TBFC identifiers found for submission.
+
+## Tools Used
+- YARA (pattern matching)
+- Linux terminal commands
+- Text editor (nano)
+
