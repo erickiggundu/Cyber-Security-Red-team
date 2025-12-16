@@ -1,2 +1,5 @@
 custom, pattern-matching scripts used in cybersecurity to detect and classify malware and other malicious files by identifying specific text strings, hexadecimal sequences, 
 or code fragments within data, acting as digital "fingerprints" for threats
+
+YARA is a tool built to identify and classify malware by searching for unique patterns, the digital fingerprints left behind by attackers. Imagine it as a detective’s notebook for cyber defenders: 
+instead of dusting for prints, YARA scans code, files, and memory for subtle traces that reveal a threat’s identity.
