@@ -10,3 +10,8 @@ instead of dusting for prints, YARA scans code, files, and memory for subtle tra
     Threat Hunting: searching through systems and endpoints for signs of known or related malware families.
     Intelligence-based scans: applying shared YARA rules from other defenders or kingdoms to detect new indicators of compromise.
     Memory analysis: examining active processes in a memory dump for malicious code fragments.
+
+# A YARA rule is built from several key elements:
+    Metadata: information about the rule itself: who created it, when, and for what purpose.
+    Strings: the clues YARA searches for: text, byte sequences, or regular expressions that mark suspicious content.
+    Conditions: the logic that decides when the rule triggers, combining multiple strings or parameters into a single decision.
