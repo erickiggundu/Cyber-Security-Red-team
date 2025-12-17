@@ -1,0 +1,79 @@
+#Sniffing software, or packet sniffers, are tools that capture and analyze data packets traveling across a network, acting like a digital tap to see all network traffic, revealing source, destination, and content. Used legitimately by network admins for diagnostics and security, they are also used maliciously by hackers to steal sensitive info like passwords or financial data, making them powerful for both system health checks and cyberattacks. 
+How they work
+
+    Capture: They monitor network interfaces to intercept data packets, whether intended for the device or not.
+    Analyze: They decode protocols and inspect packet headers and payloads to show details like IP addresses, websites visited, email contents, and file downloads.
+    Types: Can be software (like Wireshark, tcpdump) or hardware, and use methods like passive monitoring or active techniques (e.g., ARP spoofing) to redirect traffic. 
+
+#Legitimate uses (Network Management)
+
+    Diagnosing network failures and performance issues.
+    Auditing configurations and monitoring network health.
+    Security analysis to detect threats. 
+
+#Malicious uses (Cyberattacks)
+
+    Capturing login credentials, session tokens, and financial data.
+    Espionage and launching further attacks.
+    Common attack methods include ARP spoofing (redirecting traffic) and DNS spoofing (redirecting to fake sites). 
+
+#Examples
+Network Sniffing
+Wireshark - GUI packet analyzer, captures all network traffic
+tcpdump - Command-line packet capture for Linux/Unix
+Ettercap - MITM attacks and credential sniffing
+Kismet - Wireless network detector and sniffer
+NetworkMiner - Extracts files/data from network traffic
+Burp Suite - Web application traffic interceptor
+Fiddler - HTTP/HTTPS debugging and inspection
+Wireless/WiFi Sniffing
+Aircrack-ng - WiFi security auditing suite (cracking WEP/WPA)
+Airodump-ng - Wireless packet capture (part of Aircrack-ng)
+Wifite - Automated wireless attack tool
+Reaver - WPS PIN attack tool
+WiFi Pineapple - Hardware device for WiFi auditing/attacks
+Password/Credential Sniffing
+Cain & Abel - Windows password recovery and sniffing
+John the Ripper - Password cracking tool
+Hydra - Network login brute-forcer
+Mimikatz - Extracts passwords from Windows memory
+Responder - LLMNR/NBT-NS poisoner for credential capture
+Keylogging (Keyboard Sniffing)
+KeyLogger - Records keystrokes
+Spyrix - Commercial keylogger
+Actual Keylogger - Monitors keyboard activity
+Hardware keyloggers - Physical devices between keyboard and PC
+Bluetooth Sniffing
+Ubertooth - Bluetooth monitoring hardware/software
+Bluesniff - Bluetooth device discovery
+BTScanner - Bluetooth device scanner
+USB/Hardware Sniffing
+USBPcap - USB packet capture for Windows
+Wireshark (USB mode) - Can capture USB traffic
+Logic analyzers - Hardware for analyzing digital signals
+Application/API Sniffing
+Postman - API testing and monitoring
+Charles Proxy - HTTP proxy for debugging
+mitmproxy - Interactive HTTPS proxy
+Proxyman - Modern HTTP debugging proxy
+Database Sniffing
+SQL Injection tools (SQLmap) - Extract database data
+MySQL Query Sniffer - Monitors MySQL queries
+Mobile Sniffing
+Charles Proxy - Mobile app traffic capture
+Packet Capture (Android app) - Captures mobile traffic without root
+Frida - Dynamic instrumentation for mobile apps
+Wireshark (with setup) - Can monitor mobile device traffic
+Email Sniffing
+MailSniff - Monitors email traffic
+Email Header Analyzer - Extracts metadata from emails
+Browser Sniffing
+Browser Developer Tools - Built-in network inspection (F12)
+Cookie editors/viewers - Extract session cookies
+Form grabbers - Capture form submissions
+Critical Security Note:
+
+Most of these tools are ILLEGAL to use without explicit authorization
+Use only on systems/networks you own or have written permission to test
+Keyloggers and credential theft tools are particularly sensitive legally
+Ethical hackers use these only in authorized penetration testing scenarios
