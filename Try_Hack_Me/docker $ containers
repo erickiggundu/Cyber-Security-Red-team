@@ -1,0 +1,40 @@
+#What are Containers?
+
+Lightweight packages containing an app + everything it needs to run (code, libraries, dependencies)
+Isolated from other apps but share the same OS kernel
+Portable: run the same way anywhere (laptop, server, cloud)
+
+#What is Docker?
+
+Most popular tool for creating and running containers
+Key components: Docker Engine (runs containers), Images (blueprints), Dockerfiles (build scripts)
+
+#Why Important for Security?
+Advantages:
+
+Isolation - Apps separated; if one is hacked, others stay safe
+Quick updates - Rebuild and redeploy instead of patching servers
+Consistency - Same environment everywhere = fewer hidden bugs
+Disposable - Delete and recreate easily, harder for attackers to persist
+
+#Risks to Watch:
+
+Bad images - Downloading containers with malware/vulnerabilities
+Misconfigurations - Running with too many privileges (especially as root)
+Container escape - Attacker breaks out to attack the host system
+Exposed secrets - Passwords/keys accidentally left in images
+Supply chain - Compromised dependencies
+
+#Security Best Practices:
+
+Scan images for vulnerabilities before deploying
+Use minimal base images (less attack surface)
+Never run containers as root
+Keep secrets out of images (use secret management tools)
+Monitor container runtime behavior
+
+#Container Engine” in the diagram. A container engine is software that builds, runs,
+and manages containers by leveraging the host system’s OS kernel features like namespaces and cgroups. 
+One example of a container engine is Docker,
+
+we need to use to dockerfile to create docker image
