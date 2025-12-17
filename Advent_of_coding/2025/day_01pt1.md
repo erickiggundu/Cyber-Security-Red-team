@@ -68,5 +68,27 @@ Analyze the rotations in your attached document. What's the actual password to o
 
 ''''''
 #Concept
+Modular Arathematic
 
-#Method of solving
+#Code
+
+list_of_instr = [21,37,-39,-11,-3,20,7,1,49,-39,-47,27,-45,-8,-34,-48,-28,-15,22,26,40,-13,29,-38,-49,-10,12,15,15,37,30,19,-36,-42,-46,-43,-40,-49,-1,-40,-29,20,3,1>
+
+dial_position = 50
+
+zero_counter = 0
+
+def dial_math(instruction):
+  global dial_position
+  global zero_counter
+  result = (instruction + dial_position) % 100
+  if result == 0:
+    zero_counter += 1
+  dial_position = result
+
+for i in list_of_instr:
+  dial_math(i)
+
+print (f"The zero counter is : {zero_counter}")
+
+
