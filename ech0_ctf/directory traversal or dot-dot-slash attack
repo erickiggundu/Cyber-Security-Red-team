@@ -1,0 +1,33 @@
+This is a path traversal attack (also called directory traversal or dot-dot-slash attack).
+What it means:
+Breaking it down:
+
+/ = root directory
+./ = current directory
+../ = parent directory (go up one level)
+The attacker is trying to navigate to /etc/passwd (Linux password file)
+
+The pattern /././.././etc/..password:
+
+/. = stay in current directory
+/./ = stay in current directory (redundant)
+/../ = go up to parent directory
+/etc/ = navigate to etc folder
+/..password = this part looks malformed, likely meant to be /../passwd or just /passwd
+
+What the attacker is trying to do:
+Goal: Access the /etc/passwd file which contains:
+
+User account information
+Username list
+User IDs
+Home directories
+(Old systems: password hashes, but modern systems store those in /etc/shadow)
+
+How the attack works:
+
+Web application takes user input for file paths
+Attacker uses ../ to escape intended directory
+Navigate to sensitive system files
+Example vulnerable code:
+
