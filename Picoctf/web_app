@@ -1,0 +1,12 @@
+What is SSTI?
+Server-Side Template Injection occurs when user input is embedded into a template engine without proper sanitization.
+How the test works:
+You input: {{ 7 * 7 }}
+If vulnerable, server returns: 49 (the calculated result)
+If not vulnerable, server returns: {{ 7 * 7 }} (literal string)
+Common template engines:
+Python:
+
+Jinja2: {{ 7*7 }}
+Mako: ${7*7}
+Tornado: {{7*7}}
