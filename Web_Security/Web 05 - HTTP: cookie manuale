@@ -1,0 +1,72 @@
+
+# URL
+https://training.olicyber.it/challenges#challenge-344
+# Concept
+* HTTP cookies
+#Challenge Description
+
+Among the information exchanged between client and server via HTTP headers are small pieces of information called cookies. 
+Unlike non-standard headers,
+cookies are specifically designed by the HTTP standard to contain arbitrary data useful for the operation 
+of websites and web services and are commonly used as part of authentication mechanisms additional to those offered by the standard.
+
+Similar to challenge number 3, the objective is to obtain the resource http://web-05.challs.olicyber.it/flag by providing the string 
+admin in a cookie named password. It is recommended to use the cookies parameter of the get function used so far.
+
+# Method of solve
+* the code that is used to deploy the app is as follows:
+```
+#Method of Solving
+import json
+from os import environ
+from textwrap import dedent
+from http import HTTPStatus
+from flask import Flask, request, Response
+
+
+app = Flask(__name__)
+
+
+@app.route("/flag")
+def flag():
+    if request.cookies.get("password") == "admin":
+        return Response(environ["FLAG"], mimetype="text/plain", status=HTTPStatus.OK)
+    else:
+        return Response("Bad password cookie. Unauthorized", mimetype="text/plain", status=HTTPStatus.UNAUTHORIZED)
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", debug=True)
+```
+* according to the code, if there is a `password` cookie in the GET request with the value `admin`, then the flag is returned in the response
+## Curl
+* this curl command will complete the challenge:
+```
+curl -b "password=admin" -v http://web-05.challs.olicyber.it/flag
+```
+## Python
+```
+import requests
+
+URL = 'http://web-05.challs.olicyber.it/flag'
+
+my_cookies = {'password': 'admin'}
+
+get_req = requests.get(URL, cookies=my_cookies)
+req_text = get_req.text
+print(req_text)
+```
+
+'''
+The goal of the challenge is to access the /flag page on the target website. The server checks only one thing before giving the flag: 
+whether the HTTP request contains a cookie named password with the value admin.
+You do not change any server code. You only change the request you send to the server.
+To solve the challenge, you send an HTTP GET request to http://web-05.challs.olicyber.it/flag and include a cookie with password=admin. 
+When the server receives this cookie, it returns the real flag in the response body.
+If you tested locally, any flag you set yourself (for example flag{test_flag_for_learning}) is not the real flag and should not be submitted. 
+Only the flag returned by the official challenge server is correct.
+The main lesson is that cookies are controlled by the client, and trusting them directly for authentication is insecure.
+Build on the OpenAI API Platfor
+Build your next idea witOpenAI API. Generate text, images, audio, and ship full agents all in one platform.
+'''
+
