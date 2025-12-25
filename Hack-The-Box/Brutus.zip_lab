@@ -1,0 +1,4 @@
+#7-Zip to extract, which is better than the regular unzip command for encrypted files. Let me explain what's happening and what each option means.
+What's Happening:
+7-Zip is asking if you want to replace (overwrite) the empty auth.log file you extracted earlier (0 bytes) with the real encrypted file from the ZIP (43,911 bytes).
+This is good! It means 7-Zip is about to extract the actual encrypted content.
