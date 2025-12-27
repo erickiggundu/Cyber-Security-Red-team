@@ -2,3 +2,13 @@
 What's Happening:
 7-Zip is asking if you want to replace (overwrite) the empty auth.log file you extracted earlier (0 bytes) with the real encrypted file from the ZIP (43,911 bytes).
 This is good! It means 7-Zip is about to extract the actual encrypted content.
+#CRON
+CRON[1119]" refers to a specific entry in system logs (like
+/var/log/syslog or auth.log) indicating a cron job event where 1119 is the Process ID (PID),
+often seen during automated tasks or security analysis (like Brutus CTF), showing the system executing 
+a scheduled command, such as a user session opening for a scheduled task. It's not a "CRON 1119" expression,
+but rather a log line showing what cron is doing at that moment, like CRON[1119]: pam_unix(cron:session): 
+session opened for user confluence(uid=998)
+
+#SSH login sessions: 
+are secure, remote command-line connections that let you log into another computer over a network as if you were sitting in front of it.
