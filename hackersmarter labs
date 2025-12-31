@@ -1,0 +1,36 @@
+ nmap -vv -sCV -T4 -p- 10.0.30.58
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-12-30 20:39 SAST
+NSE: Loaded 157 scripts for scanning.
+NSE: Script Pre-scanning.
+NSE: Starting runlevel 1 (of 3) scan.
+Initiating NSE at 20:39
+Completed NSE at 20:39, 0.00s elapsed
+NSE: Starting runlevel 2 (of 3) scan.
+Initiating NSE at 20:39
+Completed NSE at 20:39, 0.00s elapsed
+NSE: Starting runlevel 3 (of 3) scan.
+Initiating NSE at 20:39
+Completed NSE at 20:39, 0.00s elapsed
+Initiating Ping Scan at 20:39
+Scanning 10.0.30.58 [4 ports]
+Completed Ping Scan at 20:39, 2.03s elapsed (1 total hosts)
+Nmap scan report for 10.0.30.58 [host down, received no-response]
+NSE: Script Post-scanning.
+NSE: Starting runlevel 1 (of 3) scan.
+Initiating NSE at 20:39
+Completed NSE at 20:39, 0.00s elapsed
+NSE: Starting runlevel 2 (of 3) scan.
+Initiating NSE at 20:39
+Completed NSE at 20:39, 0.00s elapsed
+NSE: Starting runlevel 3 (of 3) scan.
+Initiating NSE at 20:39
+Completed NSE at 20:39, 0.00s elapsed
+Read data files from: /usr/share/nmap
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 2.29 seconds
+           Raw packets sent: 8 (304B) | Rcvd: 0 (0B)
+ dirb http://10.0.30.58
+gobuster dir -u http://hunter.hacksmarter.org/ -w /usr/share/wordlists/distributer/directory-list-2.3-medium.txt -x html,php,js,zip,bak,txt
+
+
+  
