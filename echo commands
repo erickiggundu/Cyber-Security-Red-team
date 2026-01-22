@@ -1,0 +1,5 @@
+echo -n 'SW0gUmFkYXJlLCBqdXN0IHRlc3RpbmcgeW91IGlmIHlvdSBhcmUgcHJlcGFyZWQsIGp1c3QgdGVsbCBtZSB5ZWFoIGluIG15IGxhbmd1YWdlLgo=' | base64 -d
+we use this to echo out the base64 commands or can even use cyberchef
+echo 'yeah' | base64 no -n new line
+flag
+eWVhaAo=
